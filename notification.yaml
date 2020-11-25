@@ -1,0 +1,93 @@
+apiVersion: bucket:v1
+kind: Schema
+metadata:
+	name: notification
+spec:
+	title: Topic
+	description: Notifications that have been sent by the system.
+	properties:
+		title:
+			type: string
+		body:
+			type: string
+		topic:
+			type: string
+		token:
+			type: string
+---
+apiVersion: function/v1
+kind: Function
+metadata:
+	name: process
+spec:
+	title: Firebase Push Notifications
+	description: Function of sending notifications
+	code: ./notification/src/notification.js
+	runtime:
+		name: Node
+		language: Javascript
+	environment:
+		-	name: PROJECT_ID
+		  		valueFrom:
+		  			resourceFieldRef:
+				  		bucketName: notification
+		-	name: PRIVATE_KEY_ID
+				valueFrom:
+		  			resourceFieldRef:
+				  		bucketName: notification
+		-	name: PRIVATE_KEY
+				valueFrom:
+		  			resourceFieldRef:
+				  		bucketName: notification
+		-	name: CLIENT_EMAIL
+				valueFrom:
+		  			resourceFieldRef:
+				  		bucketName: notification
+		-	name: CLIENT_ID
+				valueFrom:
+		  			resourceFieldRef:
+				  		bucketName: notification
+		-	name: AUTH_URI
+				valueFrom:
+		  			resourceFieldRef:
+				  		bucketName: notification
+		-	name: TOKEN_URI
+				valueFrom:
+		  			resourceFieldRef:
+				  		bucketName: notification
+		-	name: AUTH_PROVIDER_X509_CERT_URL
+				valueFrom:
+		  			resourceFieldRef:
+				  		bucketName: notification
+		-	name: CLIENT_X509_CERT_URL
+				valueFrom:
+		  			resourceFieldRef:
+				  		bucketName: notification
+	dependency:
+		-	name: firebase-admin
+			version: latest
+---
+apiVersion: function/v1
+kind: Trigger
+metadata:
+	name: process-sending-notification-when-added
+spec:
+	name: default
+	func: process
+	type: bucket
+	bucketOptions:
+		bucket:
+			resourceFieldRef:
+				bucketName: notifications
+		phase: AFTER
+		type: INSERT
+				  		
+				  		
+				  		
+				  		
+				  		
+				  		
+				  		
+				  		
+				  		
+				  		
