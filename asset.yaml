@@ -13,7 +13,7 @@ spec:
 		topic:
 			type: string
 		token:
-			type: string
+      type: string
 ---
 apiVersion: function/v1
 kind: Function
@@ -27,34 +27,34 @@ spec:
 		name: Node
 		language: Javascript
 	environment:
-		-	name: PROJECT_ID
-		  		valueFrom:
-		  			resourceFieldRef:
-				  		bucketName: notification
-		-	name: PRIVATE_KEY_ID
+		- name: PROJECT_ID
+		    valueFrom:
+		  	  resourceFieldRef:
+				    bucketName: notification
+		- name: PRIVATE_KEY_ID
 				valueFrom:
-		  			resourceFieldRef:
-				  		bucketName: notification
+		  		resourceFieldRef:
+				  	bucketName: notification
 		-	name: PRIVATE_KEY
 				valueFrom:
-		  			resourceFieldRef:
-				  		bucketName: notification
+		  		resourceFieldRef:
+				  	bucketName: notification
 		-	name: CLIENT_EMAIL
 				valueFrom:
-		  			resourceFieldRef:
-				  		bucketName: notification
+		  		resourceFieldRef:
+			  		bucketName: notification
 		-	name: CLIENT_ID
 				valueFrom:
-		  			resourceFieldRef:
-				  		bucketName: notification
+					resourceFieldRef:
+			  		bucketName: notification
 		-	name: AUTH_URI
 				valueFrom:
-		  			resourceFieldRef:
-				  		bucketName: notification
+		  		resourceFieldRef:
+			  		bucketName: notification
 		-	name: TOKEN_URI
 				valueFrom:
-		  			resourceFieldRef:
-				  		bucketName: notification
+	  			resourceFieldRef:
+			  		bucketName: notification
 		-	name: AUTH_PROVIDER_X509_CERT_URL
 				valueFrom:
 		  			resourceFieldRef:
@@ -81,13 +81,3 @@ spec:
 				bucketName: notifications
 		phase: AFTER
 		type: INSERT
-				  		
-				  		
-				  		
-				  		
-				  		
-				  		
-				  		
-				  		
-				  		
-				  		
