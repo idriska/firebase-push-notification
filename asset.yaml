@@ -3,7 +3,7 @@ kind: Schema
 metadata:
  name: notifications
 spec:
- title: Notifications
+ title: Topic
  description: Notifications that have been sent by the system.
  properties:
   title:
@@ -20,8 +20,8 @@ kind: Function
 metadata:
  name: process
 spec:
- title: Firebase Push Notification
- description: Function of sending notification
+ title: Firebase Push Notifications
+ description: Function of sending notifications
  code: ./notification/src/notification.js
  runtime:
   name: Node
