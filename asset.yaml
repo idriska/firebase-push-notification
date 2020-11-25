@@ -1,19 +1,19 @@
 apiVersion: bucket/v1
 kind: Schema
 metadata:
- name: notification
+ name: notifications
 spec:
  title: Topic
-  description: Notifications that have been sent by the system.
-  properties:
-   title:
-    type: string
-   body:
-    type: string
-   topic:
-    type: string
-   token:
-    type: string
+ description: Notifications that have been sent by the system.
+ properties:
+  title:
+   type: string
+  body:
+   type: string
+  topic:
+   type: string
+  token:
+   type: string
 ---
 apiVersion: function/v1
 kind: Function
@@ -28,44 +28,17 @@ spec:
   language: Javascript
 environment:
  - name: PROJECT_ID
-   valueFrom:
-    resourceFieldRef:
-     bucketName: notification
-  - name: PRIVATE_KEY_ID
-   valueFrom:
-    resourceFieldRef:
-     bucketName: notification
-  -	name: PRIVATE_KEY
-   valueFrom:
-    resourceFieldRef:
-     bucketName: notification
-  -	name: CLIENT_EMAIL
-   valueFrom:
-    resourceFieldRef:
-     bucketName: notification
-  -	name: CLIENT_ID
-   valueFrom:
-    resourceFieldRef:
-     bucketName: notification
-  -	name: AUTH_URI
-   valueFrom:
-    resourceFieldRef:
-     bucketName: notification
-  -	name: TOKEN_URI
-   valueFrom:
-    resourceFieldRef:
-     bucketName: notification
-  -	name: AUTH_PROVIDER_X509_CERT_URL
-   valueFrom:
-    resourceFieldRef:
-     bucketName: notification
-  -	name: CLIENT_X509_CERT_URL
-   valueFrom:
-    resourceFieldRef:
-     bucketName: notification
+ - name: PRIVATE_KEY_ID
+ - name: PRIVATE_KEY
+ - name: CLIENT_EMAIL
+ - name: CLIENT_ID
+ - name: AUTH_URI
+ - name: TOKEN_URI
+ - name: AUTH_PROVIDER_X509_CERT_URL
+ - name: CLIENT_X509_CERT_URL
  dependency:
-  -	name: firebase-admin
-    version: latest
+ - name: firebase-admin
+   version: latest
 ---
 apiVersion: function/v1
 kind: Trigger
@@ -78,6 +51,6 @@ spec:
  bucketOptions:
   bucket:
    resourceFieldRef:
-    bucketName: notifications
+   bucketName: notifications
   phase: AFTER
   type: INSERT
