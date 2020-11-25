@@ -3,7 +3,7 @@ kind: Schema
 metadata:
  name: notifications
 spec:
- title: Topic
+ title: Notifications
  description: Notifications that have been sent by the system.
  properties:
   title:
@@ -26,19 +26,46 @@ spec:
  runtime:
   name: Node
   language: Javascript
- environment:
-  - name: PROJECT_ID
-  - name: PRIVATE_KEY_ID
-  - name: PRIVATE_KEY
-  - name: CLIENT_EMAIL
-  - name: CLIENT_ID
-  - name: AUTH_URI
-  - name: TOKEN_URI
-  - name: AUTH_PROVIDER_X509_CERT_URL
-  - name: CLIENT_X509_CERT_URL
+environment:
+ - name: PROJECT_ID
+   valueFrom:
+    resourceFieldRef:
+     bucketName: notification
+ - name: PRIVATE_KEY_ID
+   valueFrom:
+    resourceFieldRef:
+     bucketName: notification
+ - name: PRIVATE_KEY
+   valueFrom:
+    resourceFieldRef:
+     bucketName: notification
+ - name: CLIENT_EMAIL
+   valueFrom:
+    resourceFieldRef:
+     bucketName: notification
+ - name: CLIENT_ID
+   valueFrom:
+    resourceFieldRef:
+     bucketName: notification
+ - name: AUTH_URI
+   valueFrom:
+    resourceFieldRef:
+     bucketName: notification
+ - name: TOKEN_URI
+   valueFrom:
+    resourceFieldRef:
+     bucketName: notification
+ - name: AUTH_PROVIDER_X509_CERT_URL
+   valueFrom:
+    resourceFieldRef:
+     bucketName: notification
+ - name: CLIENT_X509_CERT_URL
+   valueFrom:
+    resourceFieldRef:
+     bucketName: notification
  dependency:
-  - name: firebase-admin
-    version: latest
+ - name: firebase-admin
+   version: latest
 ---
 apiVersion: function/v1
 kind: Trigger
