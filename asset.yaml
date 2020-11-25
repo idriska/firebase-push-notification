@@ -3,7 +3,7 @@ kind: Schema
 metadata:
  name: notifications
 spec:
- title: Topic
+ title: Notifications
  description: Notifications that have been sent by the system.
  properties:
   title:
@@ -20,8 +20,8 @@ kind: Function
 metadata:
  name: process
 spec:
- title: Firebase Push Notifications
- description: Function of sending notifications
+ title: Firebase Push Notification
+ description: Function of sending notification
  code: ./notification/src/notification.js
  runtime:
   name: Node
@@ -37,8 +37,7 @@ environment:
  - name: AUTH_PROVIDER_X509_CERT_URL
  - name: CLIENT_X509_CERT_URL
  dependency:
- - name: firebase-admin
-   version: latest
+ - name: "firebase-admin"
 ---
 apiVersion: function/v1
 kind: Trigger
