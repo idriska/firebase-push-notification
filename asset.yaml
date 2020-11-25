@@ -57,12 +57,12 @@ spec:
 			  		bucketName: notification
 		-	name: AUTH_PROVIDER_X509_CERT_URL
 				valueFrom:
-		  			resourceFieldRef:
-				  		bucketName: notification
+		  		resourceFieldRef:
+						bucketName: notification
 		-	name: CLIENT_X509_CERT_URL
 				valueFrom:
-		  			resourceFieldRef:
-				  		bucketName: notification
+		  		resourceFieldRef:
+			  		bucketName: notification
 	dependency:
 		-	name: firebase-admin
 			version: latest
