@@ -38,18 +38,19 @@ spec:
   - name: CLIENT_X509_CERT_URL
  dependency:
   - name: firebase-admin
+    version: latest
 ---
 apiVersion: function/v1
 kind: Trigger
 metadata:
-  name: process-sending-notification-when-added
+ name: process-sending-notification-when-added
 spec:
-  name: default
-  func: process
-  type: bucket
-  bucketOptions:
-    bucket: 
-      resourceFieldRef:
-        bucketName: notifications
-    phase: AFTER
-    type: INSERT
+ name: default
+ func: process
+ type: bucket
+ bucketOptions:
+  bucket:
+   resourceFieldRef:
+   bucketName: notifications
+  phase: AFTER
+  type: INSERT
