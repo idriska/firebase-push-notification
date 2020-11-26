@@ -50,21 +50,21 @@ spec:
       value: ""
     - name: DATABASE_URL
       value: ""
-  dependency:
-    - name: firebase-admin
-      version: latest
-# ---
-# apiVersion: function/v1
-# kind: Trigger
-# metadata:
-#  name: process-sending-notification-when-added
-# spec:
-#  name: default
-#  func: process
-#  type: bucket
-#  bucketOptions:
-#   bucket:
-#    resourceFieldRef:
-#    bucketName: notifications
-#   phase: AFTER
-#   type: INSERT
+  # dependency:
+  #   - name: firebase-admin
+  #     version: latest
+---
+apiVersion: function/v1
+kind: Trigger
+metadata:
+  name: process-sending-notification-when-added
+spec:
+  name: default
+  func: process
+  type: bucket
+  bucketOptions:
+    bucket:
+      resourceFieldRef:
+        bucketName: notifications
+    phase: AFTER
+    type: INSERT
