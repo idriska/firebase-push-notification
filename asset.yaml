@@ -49,7 +49,7 @@ spec:
   #   - name: CLIENT_X509_CERT_URL
   #     value: ""
   dependency:
-    - name: firebase-admin
+    name: firebase-admin
       version: latest
 # ---
 # apiVersion: function/v1
