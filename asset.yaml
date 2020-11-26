@@ -29,28 +29,28 @@ spec:
   runtime:
     name: Node
     language: Javascript
-  environment:
-    - name: PROJECT_ID
-        value: ""
-    - name: PRIVATE_KEY_ID
-        value: ""
-    - name: PRIVATE_KEY
-        value: ""
-    - name: CLIENT_EMAIL
-        value: ""
-    - name: CLIENT_ID
-        value: ""
-    - name: AUTH_URI
-        value: ""
-    - name: TOKEN_URI
-        value: ""
-    - name: AUTH_PROVIDER_X509_CERT_URL
-        value: ""
-    - name: CLIENT_X509_CERT_URL
-        value: ""
-  dependency:
-    - name: firebase-admin
-      version: latest
+  # environment:
+  #   - name: PROJECT_ID
+  #     value: ""
+  #   - name: PRIVATE_KEY_ID
+  #     value: ""
+  #   - name: PRIVATE_KEY
+  #     value: ""
+  #   - name: CLIENT_EMAIL
+  #     value: ""
+  #   - name: CLIENT_ID
+  #     value: ""
+  #   - name: AUTH_URI
+  #     value: ""
+  #   - name: TOKEN_URI
+  #     value: ""
+  #   - name: AUTH_PROVIDER_X509_CERT_URL
+  #     value: ""
+  #   - name: CLIENT_X509_CERT_URL
+  #     value: ""
+  # dependency:
+  #   - name: firebase-admin
+  #     version: latest
 # ---
 # apiVersion: function/v1
 # kind: Trigger
