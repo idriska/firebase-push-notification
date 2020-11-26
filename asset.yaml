@@ -1,56 +1,59 @@
 apiVersion: bucket/v1
 kind: Schema
 metadata:
- name: notifications
+  name: notifications
 spec:
- title: Notifications
- description: Notifications that have been sent by the system.
- properties:
-  title:
-   type: string
-  body:
-   type: string
-  topic:
-   type: string
-  token:
-   type: string
----
-apiVersion: function/v1
-kind: Function
-metadata:
- name: process
-spec:
- title: Firebase Push Notification
- description: Function of sending notifications
- code: ./notification/src/notification.js
- runtime:
-  name: Node
-  language: Javascript
- environment:
-  - name: PROJECT_ID
-  - name: PRIVATE_KEY_ID
-  - name: PRIVATE_KEY
-  - name: CLIENT_EMAIL
-  - name: CLIENT_ID
-  - name: AUTH_URI
-  - name: TOKEN_URI
-  - name: AUTH_PROVIDER_X509_CERT_URL
-  - name: CLIENT_X509_CERT_URL
- dependency:
-  - name: firebase-admin
-    version: latest
----
-apiVersion: function/v1
-kind: Trigger
-metadata:
- name: process-sending-notification-when-added
-spec:
- name: default
- func: process
- type: bucket
- bucketOptions:
-  bucket:
-   resourceFieldRef:
-   bucketName: notifications
-  phase: AFTER
-  type: INSERT
+  title: Notifications
+  description: Notifications that have been sent by the system.
+  acl:
+    write: "true==true"
+    read: "true==true"
+  properties:
+    title:
+      type: string
+    body:
+      type: string
+    topic:
+      type: string
+    token:
+      type: string
+# ---
+# apiVersion: function/v1
+# kind: Function
+# metadata:
+#  name: process
+# spec:
+#  title: Firebase Push Notification
+#  description: Function of sending notifications
+#  code: ./notification/src/notification.js
+#  runtime:
+#   name: Node
+#   language: Javascript
+#  environment:
+#   - name: PROJECT_ID
+#   - name: PRIVATE_KEY_ID
+#   - name: PRIVATE_KEY
+#   - name: CLIENT_EMAIL
+#   - name: CLIENT_ID
+#   - name: AUTH_URI
+#   - name: TOKEN_URI
+#   - name: AUTH_PROVIDER_X509_CERT_URL
+#   - name: CLIENT_X509_CERT_URL
+#  dependency:
+#   - name: firebase-admin
+#     version: latest
+# ---
+# apiVersion: function/v1
+# kind: Trigger
+# metadata:
+#  name: process-sending-notification-when-added
+# spec:
+#  name: default
+#  func: process
+#  type: bucket
+#  bucketOptions:
+#   bucket:
+#    resourceFieldRef:
+#    bucketName: notifications
+#   phase: AFTER
+#   type: INSERT
