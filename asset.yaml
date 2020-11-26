@@ -31,25 +31,25 @@ spec:
     language: Javascript
   environment:
     - name: PROJECT_ID
-      value: ""
+        value: ""
     - name: PRIVATE_KEY_ID
-      value: ""
+        value: ""
     - name: PRIVATE_KEY
-      value: ""
+        value: ""
     - name: CLIENT_EMAIL
-      value: ""
+        value: ""
     - name: CLIENT_ID
-      value: ""
+        value: ""
     - name: AUTH_URI
-      value: ""
+        value: ""
     - name: TOKEN_URI
-      value: ""
+        value: ""
     - name: AUTH_PROVIDER_X509_CERT_URL
-      value: ""
+        value: ""
     - name: CLIENT_X509_CERT_URL
-      value: ""
+        value: ""
     - name: DATABASE_URL
-      value: ""
+        value: ""
   # dependency:
   #   - name: firebase-admin
   #     version: latest
