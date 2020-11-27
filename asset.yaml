@@ -1,7 +1,7 @@
 apiVersion: bucket/v1
 kind: Schema
 metadata:
-  name: notifications
+  name: firebase-notifications
 spec:
   title: Notifications
   description: Notifications that have been sent by the system.
@@ -21,7 +21,7 @@ spec:
 apiVersion: function/v1
 kind: Function
 metadata:
-  name: process
+  name: firebase-push-notification-process
 spec:
   title: Firebase Push Notification
   description: Function of sending notifications
@@ -31,28 +31,28 @@ spec:
     language: Javascript
   environment:
     - name: PROJECT_ID
-      value: 
+      value: "Test"
     - name: PRIVATE_KEY_ID
-      value: 
+      value: "Test"
     - name: PRIVATE_KEY
-      value: 
+      value: "Test"
     - name: CLIENT_EMAIL
-      value: 
+      value: "Test"
     - name: CLIENT_ID
-      value: 
+      value: "Test"
     - name: AUTH_URI
-      value: 
+      value: "Test"
     - name: TOKEN_URI
-      value: 
+      value: "Test"
     - name: AUTH_PROVIDER_X509_CERT_URL
-      value: 
+      value: "Test"
     - name: CLIENT_X509_CERT_URL
-      value: 
+      value: "Test"
     - name: DATABASE_URL
-      value: 
-  # dependency:
-  #   - name: firebase-admin
-  #     version: latest
+      value: "Test"
+  dependency:
+    - name: firebase-admin
+      version: latest
 ---
 apiVersion: function/v1
 kind: Trigger
@@ -60,12 +60,11 @@ metadata:
   name: process-sending-notification-when-added
 spec:
   name: default
-  func: process
+  func: firebase-push-notification-process
   type: bucket
   bucketOptions:
     bucket:
       resourceFieldRef:
-        bucketName: notifications
+        bucketName: firebase-notifications
     phase: AFTER
     type: INSERT
-# test

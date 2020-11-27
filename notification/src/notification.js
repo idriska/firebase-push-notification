@@ -59,16 +59,5 @@ export default async function(changes) {
                 console.log("Error sending message:", error);
             });
     }
-
-    // ----- MULTIPLE MESSAGE ------
-    // admin
-    //     .messaging()
-    //     .sendMulticast(message)
-    //     .then(response => {
-    //         console.log("Successfully sent message:", response);
-    //     })
-    //     .catch(error => {
-    //         console.log("Error sending message:", error);
-    //     });
 }
 
